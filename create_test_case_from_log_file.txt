@@ -1,0 +1,6 @@
+function tce()
+{
+echo '{noformat}'
+grep $1 info.log | egrep 'INPUT_RECEIVED|Proccess prompt' | sed -e 's/Proccess prompt/Hear/' -e 's/Input received INPUT_RECEIVED inputs/Say/' | awk -F- '{print $8}'
+echo '{noformat}'
+}
