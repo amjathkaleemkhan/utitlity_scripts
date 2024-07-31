@@ -1,0 +1,7 @@
+function openct()
+{
+for f in `cat id.txt`;
+    do
+        open http://<URL>/$f
+    done
+}
