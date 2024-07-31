@@ -1,0 +1,16 @@
+function report()
+{
+database="dbname"
+env="/usr/local/pgsql/platform.env"
+source $env
+echo $1
+if [[ $2 == "sb" ]]; then
+echo "{noformat}"
+psql -P format=wrapped -d $database -c "select * from table_name where row(column1,column2) = (select column1,column3 from table_name2 where column4 = '$1') and report_class in ('class1','class2');"
+echo "{noformat}"
+else
+echo "{noformat}"
+psql -P format=wrapped -d $database -c "select * from call_detail where row(column1,call_id) = (select column1,column3 from table_name2 where column4 = '$1');"
+echo "{noformat}"
+fi
+}
